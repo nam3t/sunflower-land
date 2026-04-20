@@ -19,7 +19,7 @@ export function createMarketRepository(db: Database.Database) {
       saveSnapshotStatement.run(itemKey, JSON.stringify(snapshot));
     },
     getLatestSnapshot(itemKey: string) {
-      const row = getLatestSnapshotStatement.get() as
+      const row = getLatestSnapshotStatement.get(itemKey) as
         | { payload_json: string }
         | undefined;
 
