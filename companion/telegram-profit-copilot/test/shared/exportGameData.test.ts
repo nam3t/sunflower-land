@@ -1,9 +1,10 @@
-process.env.NODE_ENV = "metadata";
-
-const { buildGameData } = require("../../../../_scripts/exportProfitCopilotGameData");
-
 describe("buildGameData", () => {
   it("normalizes crop, fruit, and animal data into runtime-safe JSON", async () => {
+    process.env.NODE_ENV = "metadata";
+
+    const { buildGameData } = await import(
+      "../../../../_scripts/exportProfitCopilotGameData"
+    );
     const data = await buildGameData();
 
     expect(data.crops.Sunflower).toMatchObject({

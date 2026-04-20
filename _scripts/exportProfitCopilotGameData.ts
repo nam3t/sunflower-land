@@ -108,6 +108,6 @@ async function run() {
   await writeFile(outputPath, `${JSON.stringify(gameData, null, 2)}\n`);
 }
 
-if (process.argv[1]?.includes("exportProfitCopilotGameData.ts")) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   void run();
 }

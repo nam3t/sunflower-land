@@ -14,6 +14,13 @@ module.exports = {
     "^.+\\.ts$": [
       "ts-jest",
       {
+        astTransformers: {
+          before: [
+            {
+              path: "<rootDir>/test/transformers/importMetaUrl.cjs"
+            }
+          ]
+        },
         tsconfig: "<rootDir>/tsconfig.test.json"
       }
     ]
