@@ -15,6 +15,7 @@
     "test": "jest",
     "metadata": "NODE_PATH=./src NODE_ENV=metadata vite-node --project metadata/node.tsconfig.json metadata/generateMetadata.ts",
     "images": "NODE_PATH=./src NODE_ENV=metadata vite-node --project metadata/node.tsconfig.json metadata/generateImages.ts",
+    "profit-copilot:data": "NODE_ENV=metadata vite-node --project metadata/node.tsconfig.json _scripts/exportProfitCopilotGameData.ts",
     "translate": "NODE_PATH=./src NODE_ENV=metadata vite-node --project metadata/node.tsconfig.json _scripts/translate.ts",
     "prepare": "husky install"
   },

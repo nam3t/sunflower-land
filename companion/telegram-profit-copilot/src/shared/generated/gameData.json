@@ -1,0 +1,358 @@
+{
+  "crops": {
+    "Sunflower": {
+      "sellPrice": 0.02,
+      "harvestSeconds": 60
+    },
+    "Potato": {
+      "sellPrice": 0.14,
+      "harvestSeconds": 300
+    },
+    "Rhubarb": {
+      "sellPrice": 0.24,
+      "harvestSeconds": 600
+    },
+    "Pumpkin": {
+      "sellPrice": 0.4,
+      "harvestSeconds": 1800
+    },
+    "Zucchini": {
+      "sellPrice": 0.4,
+      "harvestSeconds": 1800
+    },
+    "Carrot": {
+      "sellPrice": 0.8,
+      "harvestSeconds": 3600
+    },
+    "Yam": {
+      "sellPrice": 0.8,
+      "harvestSeconds": 3600
+    },
+    "Cabbage": {
+      "sellPrice": 1.5,
+      "harvestSeconds": 7200
+    },
+    "Broccoli": {
+      "sellPrice": 1.5,
+      "harvestSeconds": 7200
+    },
+    "Soybean": {
+      "sellPrice": 2.3,
+      "harvestSeconds": 10800
+    },
+    "Beetroot": {
+      "sellPrice": 2.8,
+      "harvestSeconds": 14400
+    },
+    "Pepper": {
+      "sellPrice": 3,
+      "harvestSeconds": 14400
+    },
+    "Cauliflower": {
+      "sellPrice": 4.25,
+      "harvestSeconds": 28800
+    },
+    "Parsnip": {
+      "sellPrice": 6.5,
+      "harvestSeconds": 43200
+    },
+    "Eggplant": {
+      "sellPrice": 8,
+      "harvestSeconds": 57600
+    },
+    "Corn": {
+      "sellPrice": 9,
+      "harvestSeconds": 72000
+    },
+    "Onion": {
+      "sellPrice": 10,
+      "harvestSeconds": 72000
+    },
+    "Radish": {
+      "sellPrice": 9.5,
+      "harvestSeconds": 86400
+    },
+    "Wheat": {
+      "sellPrice": 7,
+      "harvestSeconds": 86400
+    },
+    "Turnip": {
+      "sellPrice": 8,
+      "harvestSeconds": 86400
+    },
+    "Kale": {
+      "sellPrice": 10,
+      "harvestSeconds": 129600
+    },
+    "Artichoke": {
+      "sellPrice": 12,
+      "harvestSeconds": 129600
+    },
+    "Barley": {
+      "sellPrice": 12,
+      "harvestSeconds": 172800
+    }
+  },
+  "fruits": {
+    "Tomato": {
+      "sellPrice": 2,
+      "plantSeconds": 7200
+    },
+    "Lemon": {
+      "sellPrice": 6,
+      "plantSeconds": 14400
+    },
+    "Blueberry": {
+      "sellPrice": 12,
+      "plantSeconds": 21600
+    },
+    "Orange": {
+      "sellPrice": 18,
+      "plantSeconds": 28800
+    },
+    "Apple": {
+      "sellPrice": 25,
+      "plantSeconds": 43200
+    },
+    "Banana": {
+      "sellPrice": 25,
+      "plantSeconds": 43200
+    },
+    "Celestine": {
+      "sellPrice": 200,
+      "plantSeconds": 21600
+    },
+    "Lunara": {
+      "sellPrice": 500,
+      "plantSeconds": 43200
+    },
+    "Duskberry": {
+      "sellPrice": 1000,
+      "plantSeconds": 86400
+    }
+  },
+  "animals": {
+    "Chicken": {
+      "purchaseCoins": 50,
+      "feedOptions": {
+        "Kernel Blend": {
+          "ingredients": {
+            "Corn": 1
+          },
+          "preferredAtLevels": [
+            0,
+            1,
+            2
+          ]
+        },
+        "Hay": {
+          "ingredients": {
+            "Wheat": 1
+          },
+          "preferredAtLevels": [
+            3,
+            4,
+            5
+          ]
+        },
+        "NutriBarley": {
+          "ingredients": {
+            "Barley": 1
+          },
+          "preferredAtLevels": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "Mixed Grain": {
+          "ingredients": {
+            "Wheat": 1,
+            "Corn": 1,
+            "Barley": 1
+          },
+          "preferredAtLevels": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "Omnifeed": {
+          "ingredients": {
+            "Gem": 1
+          },
+          "preferredAtLevels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        }
+      }
+    },
+    "Cow": {
+      "purchaseCoins": 100,
+      "feedOptions": {
+        "Kernel Blend": {
+          "ingredients": {
+            "Corn": 1
+          },
+          "preferredAtLevels": [
+            0,
+            1,
+            2
+          ]
+        },
+        "Hay": {
+          "ingredients": {
+            "Wheat": 1
+          },
+          "preferredAtLevels": [
+            3,
+            4,
+            5
+          ]
+        },
+        "NutriBarley": {
+          "ingredients": {
+            "Barley": 1
+          },
+          "preferredAtLevels": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "Mixed Grain": {
+          "ingredients": {
+            "Wheat": 1,
+            "Corn": 1,
+            "Barley": 1
+          },
+          "preferredAtLevels": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "Omnifeed": {
+          "ingredients": {
+            "Gem": 1
+          },
+          "preferredAtLevels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        }
+      }
+    },
+    "Sheep": {
+      "purchaseCoins": 120,
+      "feedOptions": {
+        "Kernel Blend": {
+          "ingredients": {
+            "Corn": 1
+          },
+          "preferredAtLevels": [
+            0,
+            1,
+            2
+          ]
+        },
+        "Hay": {
+          "ingredients": {
+            "Wheat": 1
+          },
+          "preferredAtLevels": [
+            3,
+            4,
+            5
+          ]
+        },
+        "NutriBarley": {
+          "ingredients": {
+            "Barley": 1
+          },
+          "preferredAtLevels": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "Mixed Grain": {
+          "ingredients": {
+            "Wheat": 1,
+            "Corn": 1,
+            "Barley": 1
+          },
+          "preferredAtLevels": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "Omnifeed": {
+          "ingredients": {
+            "Gem": 1
+          },
+          "preferredAtLevels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        }
+      }
+    }
+  }
+}
