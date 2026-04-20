@@ -2,16 +2,6 @@
 import * as fs from "node:fs";
 import { writeFile } from "node:fs/promises";
 import * as path from "node:path";
-import {
-  ANIMAL_FOOD_EXPERIENCE,
-  ANIMAL_FOODS,
-  ANIMALS,
-} from "../src/features/game/types/animals";
-import { CROPS } from "../src/features/game/types/crops";
-import {
-  PATCH_FRUIT,
-  PATCH_FRUIT_SEEDS,
-} from "../src/features/game/types/fruits";
 
 import type { ProfitCopilotGameData } from "../companion/telegram-profit-copilot/src/shared/types/gameData";
 
@@ -39,6 +29,16 @@ function getPreferredAtLevels(
 
 export async function buildGameData(): Promise<ProfitCopilotGameData> {
   process.env.NODE_ENV = "metadata";
+
+  const [
+    { ANIMAL_FOOD_EXPERIENCE, ANIMAL_FOODS, ANIMALS },
+    { CROPS },
+    { PATCH_FRUIT, PATCH_FRUIT_SEEDS },
+  ] = await Promise.all([
+    import("../src/features/game/types/animals"),
+    import("../src/features/game/types/crops"),
+    import("../src/features/game/types/fruits"),
+  ]);
 
   const crops = Object.fromEntries(
     Object.entries(CROPS).map(([cropName, crop]) => [
