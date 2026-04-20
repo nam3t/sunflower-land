@@ -2,12 +2,13 @@
   "name": "telegram-profit-copilot",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev:server": "tsx watch src/server/main.ts",
-    "dev:dashboard": "vite",
+    "dev:dashboard": "vite --config vite.dashboard.config.ts",
     "build:server": "tsc -p tsconfig.server.json",
-    "build:dashboard": "vite build -c vite.config.ts",
-    "test": "node --max-old-space-size=4096 ./node_modules/jest/bin/jest.js --config jest.config.cjs"
+    "build:dashboard": "vite build --config vite.dashboard.config.ts",
+    "test": "jest --config jest.config.cjs"
   },
   "dependencies": {
     "better-sqlite3": "^11.8.1",

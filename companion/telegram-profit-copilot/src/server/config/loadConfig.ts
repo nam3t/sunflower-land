@@ -3,7 +3,7 @@ import { z } from "zod";
 const configSchema = z.object({
   DATABASE_PATH: z.string().min(1),
   MARKET_POLL_MS: z.coerce.number().int().positive().default(60000),
-  PORT: z.coerce.number().int().positive(),
+  PORT: z.coerce.number().int().positive().default(4318),
   REMINDER_POLL_MS: z.coerce.number().int().positive().default(30000),
   SFL_API_URL: z.string().url(),
   SFL_MARKET_RAW_TOKEN: z.string().optional(),
@@ -22,7 +22,7 @@ export interface AppConfig {
   sflMarketRawToken?: string;
 }
 
-export function loadConfig(env: NodeJS.ProcessEnv): AppConfig {
+export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
   const parsed = configSchema.parse(env);
 
   return {
