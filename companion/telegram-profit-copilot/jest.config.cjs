@@ -1,6 +1,9 @@
 module.exports = {
   clearMocks: true,
   modulePathIgnorePatterns: ["<rootDir>/node_modules"],
+  moduleNameMapper: {
+    "^(\\.{1,2}/.*)\\.js$": "$1"
+  },
   testPathIgnorePatterns: ["<rootDir>/node_modules"],
   testEnvironment: "node",
   roots: ["<rootDir>/test"],
@@ -8,7 +11,7 @@ module.exports = {
     "^.+\\.ts$": [
       "ts-jest",
       {
-        tsconfig: "<rootDir>/tsconfig.server.json"
+        tsconfig: "<rootDir>/tsconfig.test.json"
       }
     ]
   },

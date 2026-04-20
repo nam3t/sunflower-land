@@ -1,5 +1,5 @@
-import { loadConfig } from "./config/loadConfig";
-import { buildApp } from "./http/buildApp";
+import { loadConfig } from "./config/loadConfig.js";
+import { buildApp } from "./http/buildApp.js";
 
 async function main() {
   const config = loadConfig(process.env);

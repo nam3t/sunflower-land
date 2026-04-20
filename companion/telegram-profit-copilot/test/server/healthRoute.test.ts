@@ -1,4 +1,4 @@
-import { buildApp } from "../../src/server/http/buildApp";
+import { buildApp } from "../../src/server/http/buildApp.js";
 
 describe("GET /health", () => {
   it("returns ok with worker mode metadata", async () => {

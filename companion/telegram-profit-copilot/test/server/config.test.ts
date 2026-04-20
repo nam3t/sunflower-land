@@ -1,4 +1,4 @@
-import { loadConfig } from "../../src/server/config/loadConfig";
+import { loadConfig } from "../../src/server/config/loadConfig.js";
 
 describe("loadConfig", () => {
   it("throws when the Telegram token is missing", () => {
@@ -25,6 +25,8 @@ describe("loadConfig", () => {
       port: 4318,
       databasePath: "/tmp/copilot.db",
       telegramChatId: "12345",
+      marketPollMs: 60000,
+      reminderPollMs: 30000,
     });
   });
 
@@ -43,6 +45,8 @@ describe("loadConfig", () => {
         port: 4318,
         databasePath: "/tmp/copilot.db",
         telegramChatId: "12345",
+        marketPollMs: 60000,
+        reminderPollMs: 30000,
       });
     } finally {
       process.env = originalEnv;
