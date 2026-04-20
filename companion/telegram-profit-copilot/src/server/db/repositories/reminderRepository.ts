@@ -42,7 +42,7 @@ export function createReminderRepository(db: Database.Database) {
     },
     getDueJobs(nowIso: string) {
       const rows = getDueJobsStatement.all(nowIso) as Array<{
-        id: string;
+        id: number;
         dedupe_key: string;
         due_at: string;
         kind: string;
@@ -57,7 +57,7 @@ export function createReminderRepository(db: Database.Database) {
         payload: JSON.parse(row.payload_json) as unknown,
       }));
     },
-    markSent(id: string) {
+    markSent(id: number) {
       markSentStatement.run(id);
     },
   };
