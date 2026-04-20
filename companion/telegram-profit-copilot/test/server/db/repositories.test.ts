@@ -1,5 +1,6 @@
 import { openDatabase } from "../../../src/server/db/openDatabase.js";
 import { runMigrations } from "../../../src/server/db/runMigrations.js";
+import { createCheckInRepository } from "../../../src/server/db/repositories/checkInRepository.js";
 import { createMarketRepository } from "../../../src/server/db/repositories/marketRepository.js";
 import { createReminderRepository } from "../../../src/server/db/repositories/reminderRepository.js";
 import { createSettingsRepository } from "../../../src/server/db/repositories/settingsRepository.js";
@@ -13,6 +14,7 @@ describe("SQLite repositories", () => {
 
     const settingsRepository = createSettingsRepository(db);
     const stateRepository = createStateRepository(db);
+    const checkInRepository = createCheckInRepository(db);
     const marketRepository = createMarketRepository(db);
     const reminderRepository = createReminderRepository(db);
     const telegramSessionRepository = createTelegramSessionRepository(db);
@@ -23,6 +25,10 @@ describe("SQLite repositories", () => {
       reasons: ["missing animal details"],
       flowerBalance: 120,
       activeLoops: [],
+    });
+    checkInRepository.save({
+      recordedAt: "2026-04-20T00:30:00.000Z",
+      note: "midday check-in",
     });
     marketRepository.saveSnapshot("sunflower", {
       price: 2,
@@ -46,6 +52,14 @@ describe("SQLite repositories", () => {
     expect(stateRepository.getLatest()).toMatchObject({
       confidence: 0.75,
       flowerBalance: 120,
+    });
+    expect(
+      db
+        .prepare("SELECT recorded_at, payload_json FROM check_ins ORDER BY id DESC LIMIT 1")
+        .get() as { recorded_at: string; payload_json: string },
+    ).toMatchObject({
+      recorded_at: "2026-04-20T00:30:00.000Z",
+      payload_json: expect.stringContaining("midday check-in"),
     });
     expect(marketRepository.getLatestSnapshot("sunflower")).toMatchObject({
       price: 3,
