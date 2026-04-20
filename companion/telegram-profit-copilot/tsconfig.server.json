@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "isolatedModules": true,
+    "module": "CommonJS",
+    "outDir": "dist/server",
+    "rootDir": ".",
+    "types": ["node", "jest"]
+  },
+  "include": ["src/server/**/*.ts", "test/server/**/*.ts"]
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": ["src/dashboard/**/*"]
+}
