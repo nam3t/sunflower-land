@@ -2,27 +2,32 @@ import type Database from "better-sqlite3";
 
 export function createMarketRepository(db: Database.Database) {
   const saveSnapshotStatement = db.prepare(`
-    INSERT INTO market_snapshots (payload)
-    VALUES (?)
+    INSERT INTO market_snapshots (item_key, payload_json)
+    VALUES (?, ?)
   `);
 
   const getLatestSnapshotStatement = db.prepare(`
-    SELECT payload
+    SELECT payload_json
     FROM market_snapshots
+    WHERE item_key = ?
     ORDER BY id DESC
     LIMIT 1
   `);
 
   return {
-    saveSnapshot(snapshot: unknown) {
-      saveSnapshotStatement.run(JSON.stringify(snapshot));
+    saveSnapshot(itemKey: string, snapshot: unknown) {
+      saveSnapshotStatement.run(itemKey, JSON.stringify(snapshot));
     },
-    getLatestSnapshot() {
+    getLatestSnapshot(itemKey: string) {
       const row = getLatestSnapshotStatement.get() as
-        | { payload: string }
+        | { payload_json: string }
         | undefined;
 
-      return row ? (JSON.parse(row.payload) as unknown) : null;
+      if (!row) {
+        return null;
+      }
+
+      return JSON.parse(row.payload_json) as unknown;
     },
   };
 }

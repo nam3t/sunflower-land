@@ -2,39 +2,41 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS settings (
   key TEXT PRIMARY KEY,
-  value TEXT NOT NULL
+  value_json TEXT NOT NULL,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS check_ins (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  payload TEXT NOT NULL
+  recorded_at TEXT NOT NULL,
+  payload_json TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS estimated_states (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  confidence REAL NOT NULL,
-  reasons TEXT NOT NULL,
-  flower_balance INTEGER NOT NULL,
-  active_loops TEXT NOT NULL
+  payload_json TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS market_snapshots (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  payload TEXT NOT NULL
+  item_key TEXT NOT NULL,
+  payload_json TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS reminder_jobs (
   id TEXT PRIMARY KEY,
-  run_at INTEGER NOT NULL,
-  payload TEXT NOT NULL,
-  sent_at INTEGER
+  dedupe_key TEXT NOT NULL UNIQUE,
+  due_at TEXT NOT NULL,
+  kind TEXT NOT NULL,
+  payload_json TEXT NOT NULL,
+  sent_at TEXT
 );
 
 CREATE TABLE IF NOT EXISTS telegram_sessions (
   chat_id TEXT PRIMARY KEY,
-  payload TEXT NOT NULL,
+  state TEXT NOT NULL,
+  payload_json TEXT NOT NULL,
   updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
