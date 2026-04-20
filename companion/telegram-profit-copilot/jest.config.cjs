@@ -7,7 +7,6 @@ module.exports = {
     "^assets/(.*)$": "<rootDir>/../../test/fileTransform.js",
     "^(\\.{1,2}/.*)\\.js$": "$1"
   },
-  setupFiles: ["<rootDir>/test/setupMetadata.ts"],
   testPathIgnorePatterns: ["<rootDir>/node_modules"],
   testEnvironment: "node",
   roots: ["<rootDir>/test"],

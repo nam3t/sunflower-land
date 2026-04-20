@@ -1,4 +1,6 @@
-import { buildGameData } from "../../../../_scripts/exportProfitCopilotGameData";
+process.env.NODE_ENV = "metadata";
+
+const { buildGameData } = require("../../src/shared/buildGameData");
 
 describe("buildGameData", () => {
   it("normalizes crop, fruit, and animal data into runtime-safe JSON", async () => {
