@@ -38,6 +38,14 @@ describe("SQLite repositories", () => {
       price: 3,
       observedAt: "2026-04-20T01:00:00.000Z",
     });
+    marketRepository.saveSnapshot("potato", {
+      price: 10,
+      observedAt: "2026-04-20T00:15:00.000Z",
+    });
+    marketRepository.saveSnapshot("potato", {
+      price: 11,
+      observedAt: "2026-04-20T01:15:00.000Z",
+    });
     reminderRepository.upsert({
       dedupeKey: "reminder-1",
       dueAt: "2026-04-20T00:00:00.000Z",
@@ -64,6 +72,10 @@ describe("SQLite repositories", () => {
     expect(marketRepository.getLatestSnapshot("sunflower")).toMatchObject({
       price: 3,
       observedAt: "2026-04-20T01:00:00.000Z",
+    });
+    expect(marketRepository.getLatestSnapshot("potato")).toMatchObject({
+      price: 11,
+      observedAt: "2026-04-20T01:15:00.000Z",
     });
     expect(reminderRepository.getDueJobs("2026-04-20T00:00:00.000Z")).toHaveLength(
       1,
