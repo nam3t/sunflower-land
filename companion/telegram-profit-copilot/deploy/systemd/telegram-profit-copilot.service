@@ -1,0 +1,12 @@
+[Unit]
+Description=Sunflower Land Telegram Profit Copilot
+After=network.target
+
+[Service]
+WorkingDirectory=/srv/sunflower-land/companion/telegram-profit-copilot
+ExecStart=/usr/bin/env yarn dev:server
+Restart=always
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

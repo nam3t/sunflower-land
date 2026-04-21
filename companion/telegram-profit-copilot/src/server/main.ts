@@ -6,7 +6,7 @@ import { createReminderWorker } from "./reminders/reminderWorker.js";
 import { createTelegramNotifier } from "./telegram/sendTelegramMessage.js";
 
 async function main() {
-  const config = loadConfig(process.env);
+  const config = loadConfig();
   const db = openDatabase(config.databasePath);
   runMigrations(db);
   const app = buildApp(config);
