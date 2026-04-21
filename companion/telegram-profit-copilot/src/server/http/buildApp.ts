@@ -2,6 +2,7 @@ import Fastify from "fastify";
 
 import type { AppConfig } from "../config/loadConfig.js";
 import { registerSettingsRoutes } from "./routes/settingsRoutes.js";
+import { registerTelegramWebhookRoute } from "./routes/telegramWebhookRoute.js";
 
 export function buildApp(config: AppConfig) {
   const app = Fastify();
@@ -14,6 +15,7 @@ export function buildApp(config: AppConfig) {
   }));
 
   app.register(registerSettingsRoutes);
+  app.register(registerTelegramWebhookRoute);
 
   return app;
 }
