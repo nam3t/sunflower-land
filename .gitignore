@@ -50,3 +50,6 @@ cache
 !/.cursor/rules/**
 
 /*.json
+
+companion/telegram-profit-copilot/dist/
+companion/telegram-profit-copilot/node_modules/
