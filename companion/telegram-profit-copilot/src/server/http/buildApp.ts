@@ -1,12 +1,19 @@
 import Fastify from "fastify";
 
 import type { AppConfig } from "../config/loadConfig.js";
-import { healthRoute } from "./routes/healthRoute.js";
+import { registerSettingsRoutes } from "./routes/settingsRoutes.js";
 
-export function buildApp(_config: AppConfig) {
+export function buildApp(config: AppConfig) {
   const app = Fastify();
 
-  app.register(healthRoute);
+  app.get("/health", async () => ({
+    status: "ok",
+    service: "telegram-profit-copilot",
+    marketPollMs: config.marketPollMs,
+    reminderPollMs: config.reminderPollMs,
+  }));
+
+  app.register(registerSettingsRoutes);
 
   return app;
 }
