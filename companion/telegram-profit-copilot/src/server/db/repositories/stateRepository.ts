@@ -1,4 +1,5 @@
 import type Database from "better-sqlite3";
+import type { EstimatedState } from "../../state/stateTypes.js";
 
 export function createStateRepository(db: Database.Database) {
   const saveLatestStatement = db.prepare(`
@@ -14,7 +15,7 @@ export function createStateRepository(db: Database.Database) {
   `);
 
   return {
-    saveLatest(state: unknown) {
+    saveLatest(state: EstimatedState) {
       saveLatestStatement.run(JSON.stringify(state));
     },
     getLatest() {
@@ -26,7 +27,7 @@ export function createStateRepository(db: Database.Database) {
         return null;
       }
 
-      return JSON.parse(row.payload_json) as unknown;
+      return JSON.parse(row.payload_json) as EstimatedState;
     },
   };
 }

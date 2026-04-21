@@ -21,14 +21,25 @@ describe("SQLite repositories", () => {
 
     settingsRepository.upsertMarketToken("raw-token");
     stateRepository.saveLatest({
+      recordedAt: "2026-04-20T00:30:00.000Z",
       confidence: 0.75,
       reasons: ["missing animal details"],
       flowerBalance: 120,
+      trackedItems: { Egg: 12 },
       activeLoops: [],
     });
     checkInRepository.save({
       recordedAt: "2026-04-20T00:30:00.000Z",
-      note: "midday check-in",
+      flowerBalance: 120,
+      crops: [
+        {
+          name: "Pumpkin",
+          plots: 8,
+          startedAt: "2026-04-20T00:00:00.000Z",
+        },
+      ],
+      animals: [],
+      trackedItems: { Egg: 12 },
     });
     marketRepository.saveSnapshot("sunflower", {
       price: 2,
@@ -67,7 +78,7 @@ describe("SQLite repositories", () => {
         .get() as { recorded_at: string; payload_json: string },
     ).toMatchObject({
       recorded_at: "2026-04-20T00:30:00.000Z",
-      payload_json: expect.stringContaining("midday check-in"),
+      payload_json: expect.stringContaining("\"Pumpkin\""),
     });
     expect(marketRepository.getLatestSnapshot("sunflower")).toMatchObject({
       price: 3,

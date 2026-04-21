@@ -1,9 +1,5 @@
 import type Database from "better-sqlite3";
-
-type CheckInInput = {
-  recordedAt: string;
-  [key: string]: unknown;
-};
+import type { CheckInInput } from "../../state/checkInTypes.js";
 
 export function createCheckInRepository(db: Database.Database) {
   const saveStatement = db.prepare(`
