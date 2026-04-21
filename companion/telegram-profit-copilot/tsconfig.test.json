@@ -8,5 +8,11 @@
     "rootDir": ".",
     "types": ["node", "jest"]
   },
-  "include": ["src/server/**/*.ts", "test/**/*.ts"]
+  "include": [
+    "src/server/**/*.ts",
+    "src/dashboard/**/*.ts",
+    "src/dashboard/**/*.tsx",
+    "test/**/*.ts",
+    "test/**/*.tsx"
+  ]
 }

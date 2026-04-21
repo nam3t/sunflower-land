@@ -9,9 +9,10 @@ module.exports = {
   },
   testPathIgnorePatterns: ["<rootDir>/node_modules"],
   testEnvironment: "node",
+  testEnvironmentOptions: {},
   roots: ["<rootDir>/test"],
   transform: {
-    "^.+\\.ts$": [
+    "^.+\\.tsx?$": [
       "ts-jest",
       {
         astTransformers: {
