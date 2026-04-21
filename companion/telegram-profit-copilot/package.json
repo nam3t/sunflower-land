@@ -6,7 +6,7 @@
   "scripts": {
     "dev:server": "tsx watch src/server/main.ts",
     "dev:dashboard": "vite --config vite.dashboard.config.ts",
-    "build:server": "tsc -p tsconfig.server.json && node -e \"const { mkdirSync, copyFileSync } = require('fs'); mkdirSync('dist/server/db', { recursive: true }); copyFileSync('src/server/db/schema.sql', 'dist/server/db/schema.sql');\"",
+    "build:server": "tsc -p tsconfig.server.json && node -e \"const { mkdirSync, copyFileSync } = require('fs'); mkdirSync('dist/server/db', { recursive: true }); mkdirSync('dist/server/shared/generated', { recursive: true }); copyFileSync('src/server/db/schema.sql', 'dist/server/db/schema.sql'); copyFileSync('src/shared/generated/gameData.json', 'dist/server/shared/generated/gameData.json');\"",
     "build:dashboard": "vite build --config vite.dashboard.config.ts",
     "test": "jest --config jest.config.cjs"
   },
